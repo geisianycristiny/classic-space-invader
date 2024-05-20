@@ -1,4 +1,4 @@
-class Bullet {
+export default class Bullet {
     constructor(canvas, x, y, velocity,  BulletColor){
         this.canvas = canvas;
         this.x = x;
