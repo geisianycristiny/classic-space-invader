@@ -26,5 +26,5 @@ class Enemy {
         } else {
             return false;
         }
-    
+    }
 }
