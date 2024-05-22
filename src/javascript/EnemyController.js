@@ -49,5 +49,11 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             this.enemyBulletController.shoot(enemy.x + enemy.width / 2, enemy.y, -3);
         }
     }
+
+    resetMoveDownTimer() {
+        if(this.moveDownTimer <= 0 ) {
+            this.moveDownTimer = this.moveDownTimerDefault;
+        }
+    }
 }
 
