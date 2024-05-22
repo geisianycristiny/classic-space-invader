@@ -76,7 +76,7 @@ constructor(canvas, enemyBulletController, playerBulletController) {
                     break;
                 }
             } else if(this.currentDirection === MovingDirection.downLeft) {
-                if(this.moveDownTimer(MoveDirection.left)) {
+                if(this.moveDown(MoveDirection.left)) {
                     break;
                 } 
             } else if(this.currentDirection === MovingDirection.left) {
@@ -88,7 +88,7 @@ constructor(canvas, enemyBulletController, playerBulletController) {
                     break;
                 }
             } else if (this.currentDirection === MovingDirection.downRight) {
-                if(this.moveDownTimer(Moving)){
+                if(this.moveDown(Moving)){
                     break;
                 }
             }
