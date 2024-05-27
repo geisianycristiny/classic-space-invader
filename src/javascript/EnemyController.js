@@ -128,5 +128,9 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             });
         }); 
     }
+
+    collideWith(sprite) {
+        return this.enemyRows.flat.some((enemy) => enemy.collideWith(sprite));
+    }
 }
 
