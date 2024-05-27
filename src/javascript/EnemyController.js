@@ -106,5 +106,14 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             return false;
         }
     }
+
+    drawEnemies(ctx) {
+        this.enemyRows.flat().forEach((enemyRow) => {
+            enemyRow.move(this.xVelocity, this.yVelocity)
+            enemyRow.draw(ctx); 
+        });
+    }
+
+    happy = () => {};
 }
 
