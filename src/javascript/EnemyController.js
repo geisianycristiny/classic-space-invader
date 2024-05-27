@@ -129,6 +129,14 @@ constructor(canvas, enemyBulletController, playerBulletController) {
         }); 
     }
 
+    draw(ctx) {
+        this.decrementMoveDownTimer();
+        this.updateVelocityAndDirection();
+            this.collisionDetection();
+            this.drawEnemies(ctx);
+            this.fireBullet();
+            this.resetMoveDownTimer();
+        
     collideWith(sprite) {
         return this.enemyRows.flat.some((enemy) => enemy.collideWith(sprite));
     }
