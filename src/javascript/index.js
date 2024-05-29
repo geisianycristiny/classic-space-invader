@@ -24,7 +24,16 @@ let isGameOver = false;
 let didWin = false;
 
 function game() {
+    checkGameOver();
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
+    displayGameOver();
+    
+    if(!isGameOver) {
+        enemyController.draw(ctx);
+        player.draw(ctx);
+        playerBulletController.draw(ctx);
+        enemyBulletController.draw(ctx);
+    }
 }
 
 function displayGameOver() {
