@@ -50,7 +50,7 @@ class Player {
     }
     };
     
-    keyUp = (event) => {
+    keyup = (event) => {
     if (event.code == "ArrowRight") {
     this.rightPressed = false;
     }
