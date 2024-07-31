@@ -10,6 +10,12 @@ const gameOverScreen = document.getElementById("gameOverScreen");
 const winScreen = document.getElementById("winScreen");
 const title = document.getElementById("title");
 const scoreDisplay = document.getElementById("score");
+const playButton = document.getElementById("playButton");
+const gameOverScreenScore = document.getElementById("gameOverScreenScore");
+const retryButton = document.getElementById("rettyButton");
+const restartButton = document.getElementById("restartButton");
+const winScreenScore = document.getElementById("winScreenScore");
+const footer = document.getElementById("footer");
 
 canvas.width = 1024;
 canvas.height = 600;
@@ -25,7 +31,7 @@ const player = new Player(canvas, 10, playerBulletController);
 
 let isGameOver = false;
 let didWin = false;
-
+let gameInterval =
 function game() {
     canvas.style.display = "nome";
     gameOverScreen.style.display = "nome";
@@ -66,5 +72,19 @@ function checkGameOver() {
         isGameOver = true;
     }
 }
+function  startGame  () {
+    instructions.style.display = "none";
+    logosContainer.style.display = "none";
+    footer.style.display = "none";
+    winScreen.style.display = "none";
 
-setInterval(game, 1000 / 60);
+    title.style.display = "flex";
+    scoreDisplay.style.display = "flex";
+
+    canvas.style.display = "block";
+    gameInterval = setInterval(game, 1000 / 60);
+}
+
+playButton.addEventListener("click", startGame);
+
+
