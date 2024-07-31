@@ -4,8 +4,14 @@ import Player from './Player.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
+const instructions = document.getElementById("instructions");
+const logosContainer = document.getElementById("logosContainer");
+const gameOverScreen = document.getElementById("gameOverScreen");
+const winScreen = document.getElementById("winScreen");
+const title = document.getElementById("title");
+const scoreDisplay = document.getElementById("score");
 
-canvas.width = 600;
+canvas.width = 1024;
 canvas.height = 600;
 
 const background = new Image();
@@ -21,6 +27,11 @@ let isGameOver = false;
 let didWin = false;
 
 function game() {
+    canvas.style.display = "nome";
+    gameOverScreen.style.display = "nome";
+    winScreen.style.display = "nome";
+    title.style.display = "nome";
+    scoreDisplay.style.display = "nome";
     checkGameOver();
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     
