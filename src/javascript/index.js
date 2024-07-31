@@ -29,9 +29,24 @@ const playerBulletController = new BulletController(canvas, 10, "white", true);
 const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
 const player = new Player(canvas, 10, playerBulletController); 
 
+let enemyController;
+let gameInterval;
+let player;
+let playerScore;
 let isGameOver = false;
 let didWin = false;
-let gameInterval =
+
+function updateScore(enemytype) {
+    const scoreMap ={
+        1: 50,
+        2: 100,
+        3: 150.
+    };
+
+    playerScore += scoreMap[enemytype] || 0;
+    scoreDisplay.innerText = 'pontuaçao: ${playerScore}';
+}
+
 function game() {
     canvas.style.display = "nome";
     gameOverScreen.style.display = "nome";
@@ -72,6 +87,18 @@ function checkGameOver() {
         isGameOver = true;
     }
 }
+function initGame() {
+    enemyController = new enemyController(
+        canvas,
+        enemyBulletController,
+        playerBulletController
+    );
+    player = new player(canvas, 10, playerBulletController);
+    playerScore = 0;
+    isGameOver = false;
+    didWin =n false;
+}
+
 function  startGame  () {
     instructions.style.display = "none";
     logosContainer.style.display = "none";
@@ -82,6 +109,7 @@ function  startGame  () {
     scoreDisplay.style.display = "flex";
 
     canvas.style.display = "block";
+    initGame();
     gameInterval = setInterval(game, 1000 / 60);
 }
 
