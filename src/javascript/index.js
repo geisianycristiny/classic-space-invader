@@ -17,6 +17,10 @@ const restartButton = document.getElementById("restartButton");
 const winScreenScore = document.getElementById("winScreenScore");
 const footer = document.getElementById("footer");
 
+gameOverScreen.style.display = 'none';
+winScreen.style.display = 'none';
+scoreDisplay.style.display = 'none';
+
 canvas.width = 1024;
 canvas.height = 600;
 
@@ -48,22 +52,17 @@ function updateScore(enemytype) {
 }
 
 function game() {
-    canvas.style.display = "nome";
-    gameOverScreen.style.display = "nome";
-    winScreen.style.display = "nome";
-    title.style.display = "nome";
-    scoreDisplay.style.display = "nome";
+    
     checkGameOver();
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-    
+    displayGameOver();
+
     if(!isGameOver) {
         enemyController.draw(ctx);
         player.draw(ctx);
         playerBulletController.draw(ctx);
         enemyBulletController.draw(ctx);
-    } else {
-        displayGameOver();
-    }
+    } 
 }
 
 function displayGameOver() {
@@ -77,6 +76,7 @@ function displayGameOver() {
 
 function checkGameOver() {
     if(isGameOver) {
+        clearInterval(gameInterval);0
         return;
     }
     if(enemyBulletController.collideWith(player) || enemyController.collideWith(player)) {
@@ -95,6 +95,7 @@ function initGame() {
     );
     player = new player(canvas, 10, playerBulletController);
     playerScore = 0;
+    updateScore(0);
     isGameOver = false;
     didWin =n false;
 }
